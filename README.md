@@ -20,7 +20,7 @@
 1. Установите Python и Git, если они еще не установлены.
 2. Склонируйте репозиторий с помощью команды:
    ```bash
-   git clone https://github.com/your_username/your_project.git
+   git clone https://github.com/Baltsat/users-when-repair.git
    ```
 3. Установите необходимые зависимости с помощью команды:
    ```bash
