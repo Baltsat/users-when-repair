@@ -1,0 +1,5 @@
+Django==4.2.5
+streamlit==1.26.0
+plotly
+numpy
+catboost
