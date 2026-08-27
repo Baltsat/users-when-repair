@@ -1,64 +1,53 @@
-# "Здоровые трубы" – Сервис прогнозирования отказов трубопроводов от команды Mr. Sister
-<img width="80%" alt="image" src="https://github.com/Baltsat/users-when-repair/assets/42536677/e79c4b82-559f-4924-b56e-e1414c42fcab">
+# Healthy Pipes — predicting pipeline failures
 
-## О чем проект?
-Данный проект посвящен прогнозированию отказов трубопроводов на основе данных о технологическом режиме эксплуатации. Цель проекта заключается в разработке модели, способной предсказывать возможные отказы трубопроводов и принимать меры по их предотвращению и устранению.
+Hackathon solution by team **Mr. Sister**. An interactive maintenance-support system for oil-and-gas liquid pipeline networks that combines a physical flow model, a pipe-section model, and machine learning.
 
-Интерактивная система помощи при обслуживании системы НГЖС объединяет физико-математическую модель потока, участка трубы и модель машинного обучения. Система предоставляет следующие параметры для каждого участка сети:
+<img width="80%" alt="dashboard" src="https://github.com/Baltsat/users-when-repair/assets/42536677/e79c4b82-559f-4924-b56e-e1414c42fcab">
 
-- Накопленный износ, связанный с коррозией.
-- Остаточный срок службы.
-- Текущий риск использования на основе предиктивной модели по историческим данным простоев.
-- Прогноз роста риска использования участка в будущем.
-- Рекомендации по изменению режимов работы для увеличения срока службы, включая сценарии "что-если".
+## What it does
 
-В системе реализована интерактивная визуализация графа сети НГЖС с интуитивно понятными обозначениями вероятности отказа. Также предусмотрен интерфейс для добавления новых данных и возможность адаптации для получения данных из системы мониторинга в реальном времени.
+For every section of the network the system reports:
 
-В процессе создания решения была проведена обширная работа по анализу данных, проверены множество гипотез и подготовлено несколько моделей машинного обучения с разными уровнями интерпретируемости. Были предложены идеи по дальнейшему улучшению решения, включая аспекты программного обеспечения и схемы сбора данных и обогащения датасета. Качество работы моделей машинного обучения, оцениваемое по различным метрикам (f1-мера, точность, полнота), на кросс-валидации с использованием 3 фолдов варьируется от 0,91 до 0,99.
+-   Accumulated corrosion-driven wear.
+-   Remaining service life.
+-   Current risk of use, from a predictive model trained on historical downtime.
+-   Forecast risk growth for that section.
+-   Recommendations for changing operating regimes to extend service life, including what-if scenarios.
 
-## Установка и использование
-1. Установите Python и Git, если они еще не установлены.
-2. Склонируйте репозиторий с помощью команды:
-   ```bash
-   git clone https://github.com/Baltsat/users-when-repair.git
-   ```
-3. Установите необходимые зависимости с помощью команды:
-   ```bash
-   pip install -r requirements.txt
-   ```
-4. Запустите Jupyter Notebook и выполните ноутбуки для обработки данных и обучения модели.
-5. Запустите Flask-приложение для запуска веб-интерфейса:
-   ```bash
-   python main.py
-   ```
+The network graph is rendered interactively with intuitive failure-probability markers. New data can be added through the interface, and the system is designed to be adapted to a live monitoring feed.
 
-## Используемые данные
-Мы используем данные технологического режима эксплуатации трубопроводов, такие как:
-- Давление
-- Температура
-- Поток жидкости
-- Вибрации
+## Results
 
-## Задачи проекта
-Основные задачи проекта:
-1. Подготовить данные для обучения модели.
-2. Проанализировать данные и выделить основные признаки, влияющие на отказы трубопроводов.
-3. Разработать и обучить модель машинного обучения для прогнозирования отказов.
-4. Оценить качество модели и провести ее приемо-сдаточные испытания.
-5. Разработать интерфейс для пользователей с возможностью визуализации и мониторинга состояния трубопроводов.
+Extensive data analysis, many tested hypotheses, and several machine-learning models at different levels of interpretability. Model quality on 3-fold cross-validation, measured by F1, precision and recall, ranges from **0.91 to 0.99**.
 
-## Технологии
-Для работы над проектом используются следующие технологии:
-- Python
-- Jupyter Notebook
-- Библиотеки для анализа данных: pandas, numpy, sklearn
-- Библиотеки для визуализации: matplotlib, seaborn
-- Flask для разработки веб-интерфейса
+## Data
 
-## Команда разработки
-| Имя                  | Роль           | Контакт               |
-|----------------------|----------------|-----------------------|
-| Вадим Оленников    | Data Analysis and Product | [t.me/LTDigor](https://t.me/LTDigor)       |
-| ---                  | ---            | ---                   |
-| Сергей Ванданов      | Machine Learning and Software Engineering| [t.me/rapid76](https://t.me/rapid76) |
-| ---                  | ---            | ---                   |
+Pipeline operating-regime telemetry: pressure, temperature, fluid flow, vibration.
+
+## Project tasks
+
+1. Prepare the data for model training.
+2. Analyse the data and identify the features that drive pipeline failures.
+3. Build and train a machine-learning model for failure prediction.
+4. Evaluate model quality and run acceptance testing.
+5. Build a user interface for visualising and monitoring pipeline condition.
+
+## Stack
+
+Python · Jupyter Notebook · pandas, numpy, scikit-learn · matplotlib, seaborn · CatBoost · Flask
+
+## Install and run
+
+1. Install Python and Git.
+2. Clone the repository.
+3. `pip install -r requirements.txt`
+4. Run the notebooks for data processing and model training.
+5. Start the web interface: `python main.py`
+
+## Team
+
+| Name | Role | Contact |
+| --- | --- | --- |
+| Vadim Olennikov | Data analysis and product | [t.me/LTDigor](https://t.me/LTDigor) |
+| Sergey Vandanov | Machine learning and software engineering | [t.me/rapid76](https://t.me/rapid76) |
+| Konstantin Baltsat | Machine learning | [t.me/baltsat](https://t.me/baltsat) |
